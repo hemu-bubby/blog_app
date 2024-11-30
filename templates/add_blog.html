@@ -1,0 +1,34 @@
+{% extends "base.html" %}}
+{% block title %}addblog{%endblock %}
+
+{% block content %}
+<body style="font-family: Arial, sans-serif; margin: 20px;">
+    <h1>Add a New Blog</h1>
+    <form action="/add-blog" method="POST" style="max-width: 500px; margin: auto;">
+        <label for="title" style="display: block; margin-bottom: 5px;">Blog Title:</label>
+        <input type="text" name="title" id="title" style="width: 100%; padding: 8px; margin-bottom: 15px;" required>
+
+        <label for="content" style="display: block; margin-bottom: 5px;">Content:</label>
+        <textarea name="content" id="content" rows="5" style="width: 100%; padding: 8px; margin-bottom: 15px;" required></textarea>
+
+        <h2>Author Details</h2>
+        <label for="name" style="display: block; margin-bottom: 5px;">Author Name:</label>
+        <input type="text" name="name" id="name" style="width: 100%; padding: 8px; margin-bottom: 15px;" required>
+
+        <label for="email" style="display: block; margin-bottom: 5px;">Email:</label>
+        <input type="email" name="email" id="email" style="width: 100%; padding: 8px; margin-bottom: 15px;" required>
+
+        <label for="country" style="display: block; margin-bottom: 5px;">Country:</label>
+        <input type="text" name="country" id="country" style="width: 100%; padding: 8px; margin-bottom: 15px;" required>
+
+        <label for="gender" style="display: block; margin-bottom: 5px;">Gender:</label>
+        <select name="gender" id="gender" style="width: 100%; padding: 8px; margin-bottom: 15px;" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+        </select>
+
+        <button type="submit" style="padding: 10px 15px; background-color: #007BFF; color: white; border: none; border-radius: 5px;">Add Blog</button>
+    </form>
+</body>
+{% endblock %}
