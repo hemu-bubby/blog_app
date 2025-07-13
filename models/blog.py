@@ -14,5 +14,5 @@ class Blog(db.Model):
     title = db.Column(db.String(80), nullable=False)
     content = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.DateTime, server_default=db.func.current_timestamp())
-    author_id = db.Column(db.Integer, db.ForeignKey('author.author_id'), nullable=False)  # Foreign Key to Author table
+    author_id = db.Column(db.Integer, db.ForeignKey('author.author_id'), nullable=False)
     author = db.relationship('Author', backref=db.backref('blogs', lazy=True))
