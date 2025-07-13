@@ -27,7 +27,6 @@ def blog():
 @app.route('/add-blog', methods=['GET', 'POST'])
 def add_blog():
     if request.method == 'POST':
-        # Fetch form data
         title = request.form['title']
         content = request.form['content']
         name = request.form['name']
@@ -35,14 +34,12 @@ def add_blog():
         country = request.form['country']
         gender = request.form['gender']
 
-        # Check if author already exists
         author = Author.query.filter_by(email=email).first()
         if not author:
             author = Author(name=name, email=email, country=country, gender=gender)
             db.session.add(author)
             db.session.commit()
 
-        # Create a new blog
         blog = Blog(title=title, content=content, author_id=author.author_id)
         db.session.add(blog)
         db.session.commit()
